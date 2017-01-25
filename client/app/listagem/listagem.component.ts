@@ -11,6 +11,7 @@ export class ListagemComponent {
 
     fotos: FotoComponent[] = [];
     service: FotoService;
+    mensagem: string = '';
 
     constructor(service: FotoService) {
 
@@ -32,8 +33,10 @@ export class ListagemComponent {
                     let indice = novasFotos.indexOf(foto);
                     novasFotos.splice(indice, 1);
                     this.fotos = novasFotos;
+                    this.mensagem = 'Foto removida com sucesso';
                 },
-                err => console.log(err)
+                err => console.log(err);
+                this.mensagem = 'Não foi possível remover a foto';
             );
     }
 }
